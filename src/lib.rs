@@ -9,33 +9,44 @@ use std::path::Path;
 /// ## Example
 /// 
 /// ```
-/// // Imports The Crate
 /// use b2sum::Blake2bSum;
 /// 
-/// // Returns as String
-/// let hex_output = Blake2bSum::new("file.txt");
+/// // Passes in the digest length in bytes and returns the struct for reading the file.
+/// let b2 = Blake2bSum::new(64);
 /// 
-/// // Converts To Byte Vector From Hexadecimal
-/// let bytes = Blake2bSum::to_bytes(hex_output);
+/// // Reads the given file with the provided digest size
+/// let hex = b2.read("test.txt");
 /// 
 /// // Prints Hexadecimal Output
 /// println!("{}",hex_output);
 /// 
 /// ```
-pub struct Blake2bSum;
+pub struct Blake2bSum {
+    digest_size: usize,
+}
 
 impl Blake2bSum {
+    pub fn new(digest: usize) -> Self {
+        if digest > 0 && digest <= 64 {
+            return Blake2bSum {
+                digest_size: digest,
+            }
+        }
+        else {
+            panic!("Digest Size is either too large or too small")
+        }
+    }
     /// ## Hash File
     /// This is a function that hashes a file using **Blake2b** and returns the **Hexadecimal Representation** of it as a String. It takes as input any reference to Path.
     /// 
     /// It should be noted that changes to the file during hashing, such as truncating the file can cause problems.
-    pub fn new<T: AsRef<Path>>(path: T) -> String {
+    pub fn read<T: AsRef<Path>>(&self, path: T) -> String {
 
         // Opens File Using File Buffer
         let fbuffer = FileBuffer::open(path).expect("failed to open file");
         
-        // Sets Blake2b Context at a digest size of 512 bits (64 bytes)
-        let mut context = Blake2b::new(64);
+        // Sets Blake2b Context at the given digest size
+        let mut context = Blake2b::new(self.digest_size);
         context.update(&fbuffer);
         let hash = context.finalize();
         
@@ -50,7 +61,7 @@ impl Blake2bSum {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn it_works() {
+    fn b2sum() {
         assert_eq!(2 + 2, 4);
     }
 }
