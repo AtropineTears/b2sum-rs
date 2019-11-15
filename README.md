@@ -12,7 +12,7 @@ use b2sum::Blake2bSum;
 fn main(){
     // Creates a new File Instance with a digest size of 64 bytes
     let context = Blake2bSum::new(64);
-    
+
     // Outputs a Hexadecimal String
     let hash = context.read("example_file.txt");
 
