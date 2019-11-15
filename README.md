@@ -1,6 +1,6 @@
 # b2sum
 
-![Crates.io](https://img.shields.io/crates/v/b2sum-rust?style=flat-square)
+[![Crates.io](https://img.shields.io/crates/v/b2sum-rust?style=flat-square)](https://crates.io/crates/b2sum-rust)
 
 A **Pure Rust Library** For Hashing Files using Blake2b with any given digest size.
 
