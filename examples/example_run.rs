@@ -1,5 +1,5 @@
-extern crate b2sum;
-use b2sum::Blake2bSum;
+extern crate b2sum_rust;
+use b2sum_rust::Blake2bSum;
 
 fn main(){
     // Creates a new File Instance

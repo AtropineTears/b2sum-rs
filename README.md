@@ -7,7 +7,7 @@ It takes advantage of the crates [filebuffer](https://github.com/ruuda/filebuffe
 ## Example
 
 ```rust
-use b2sum::Blake2bSum;
+use b2sum_rust::Blake2bSum;
 
 fn main(){
     // Creates a new File Instance with a digest size of 64 bytes

@@ -1,5 +1,5 @@
 [package]
-name = "b2sum"
+name = "b2sum-rust"
 version = "0.1.0"
 authors = ["0xSilene"]
 edition = "2018"

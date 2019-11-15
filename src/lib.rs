@@ -9,7 +9,7 @@ use std::path::Path;
 /// ## Example
 /// 
 /// ```
-/// use b2sum::Blake2bSum;
+/// use b2sum_rust::Blake2bSum;
 /// 
 /// fn main(){
 ///     // Creates a new File Instance
