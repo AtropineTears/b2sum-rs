@@ -3,6 +3,11 @@ name = "b2sum"
 version = "0.1.0"
 authors = ["0xSilene"]
 edition = "2018"
+description = "A Rust Library For Computing The Blake2b Hash of Files with any given digest size"
+repository = "https://github.com/0xSilene/b2sum-rust"
+keywords = ["b2sum", "hashing","blake2b","file-hashing","checksum"]
+categories = ["asynchronous","cryptography","filesystem","parsing"]
+license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

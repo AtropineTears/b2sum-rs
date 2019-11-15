@@ -4,23 +4,32 @@ use std::path::Path;
 
 /// ## Blake2b File Hash Constructor
 /// 
-/// This is the official constructor used to call the new() function which returns a 64 byte blake2b digest of a file.
+/// This is the official constructor used to call the new() function with the parameter of the intended digest size.
 /// 
 /// ## Example
 /// 
 /// ```
 /// use b2sum::Blake2bSum;
 /// 
-/// // Passes in the digest length in bytes and returns the struct for reading the file.
-/// let b2 = Blake2bSum::new(64);
+/// fn main(){
+///     // Creates a new File Instance
+///     let context = Blake2bSum::new(64);
+///     
+///     // Outputs a Hexadecimal String
+///     let hash = context.read("example_file.txt");
 /// 
-/// // Reads the given file with the provided digest size
-/// let hex = b2.read("test.txt");
+///     // Converts the hexadecimal string to a vector of bytes
+///     let _bytes = Blake2bSum::to_bytes(&hash);
 /// 
-/// // Prints Hexadecimal Output
-/// println!("{}",hex_output);
+///     // Prints The Hexadecimal Representation
+///     println!("Hash: {}",hash);
+/// 
+///     // Asserts That These Are Equal
+///     assert_eq!(hash,"33B20D15383F97EB46D4FA69442596170CCA01008963A7D0E47210C33AEEF991C78323850C012550C227954A40B3D7AD612568ABC73DB9233FAB9EA4F002B0CB");
+/// }
 /// 
 /// ```
+#[derive(Debug)]
 pub struct Blake2bSum {
     digest_size: usize,
 }
@@ -53,15 +62,7 @@ impl Blake2bSum {
         // Return as Hexadecimal Encoded String
         return hex::encode_upper(hash.as_bytes());
     }
-    pub fn to_bytes(s: String) -> Vec<u8> {
+    pub fn to_bytes(s: &str) -> Vec<u8> {
         return hex::decode(s).unwrap()
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn b2sum() {
-        assert_eq!(2 + 2, 4);
     }
 }
