@@ -21,7 +21,7 @@ fn main(){
     let hash = context.read("example_file.txt");
 
     // Converts the hexadecimal string to a vector of bytes
-    let _bytes = Blake2bSum::to_bytes(&hash);
+    let _bytes = Blake2bSum::as_bytes(&hash);
 
     // Prints The Hexadecimal Representation
     println!("Hash: {}",hash);
