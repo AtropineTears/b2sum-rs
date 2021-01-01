@@ -19,7 +19,7 @@ use std::path::Path;
 ///     let hash = context.read("example_file.txt");
 /// 
 ///     // Converts the hexadecimal string to a vector of bytes
-///     let _bytes = Blake2bSum::to_bytes(&hash);
+///     let _bytes = Blake2bSum::as_bytes(&hash);
 /// 
 ///     // Prints The Hexadecimal Representation
 ///     println!("Hash: {}",hash);
@@ -46,7 +46,7 @@ impl Blake2bSum {
         }
     }
     /// ## Hash File
-    /// This is a function that hashes a file using **Blake2b** and returns the **Hexadecimal Representation** of it as a String. It takes as input any reference to Path.
+    /// This is a function that hashes a file using **Blake2b** and returns the **Hexadecimal Representation** of it as a **String**. It takes as input any reference to Path.
     /// 
     /// It should be noted that changes to the file during hashing, such as truncating the file can cause problems.
     pub fn read<T: AsRef<Path>>(&self, path: T) -> String {
@@ -59,10 +59,11 @@ impl Blake2bSum {
         context.update(&fbuffer);
         let hash = context.finalize();
         
-        // Return as Hexadecimal Encoded String
+        // Return as Upper Hexadecimal Encoded String
         return hex::encode_upper(hash.as_bytes());
     }
-    pub fn to_bytes(s: &str) -> Vec<u8> {
+    /// `as_bytes()` converts from a **Hexadecimal String** to a **Vector of Bytes**
+    pub fn as_bytes(s: &str) -> Vec<u8> {
         return hex::decode(s).unwrap()
     }
 }

@@ -1,9 +1,9 @@
 [package]
 name = "b2sum-rust"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["0xSilene"]
 edition = "2018"
-description = "A Rust Library For Computing The Blake2b Hash of Files with any given digest size"
+description = "A Rust Library For Computing The Blake2b Hash of Files with any given Digest Size"
 repository = "https://github.com/0xSilene/b2sum-rust"
 keywords = ["b2sum", "hashing","blake2b","file-hashing","checksum"]
 categories = ["asynchronous","cryptography","filesystem","parsing"]
@@ -14,4 +14,4 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 filebuffer = "0.4.0"
 blake2-rfc = "0.2.18"
-hex = "0.4.0"
+hex = "0.4.2"
