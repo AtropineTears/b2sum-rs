@@ -1,6 +1,6 @@
 [package]
 name = "b2sum-rust"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["0xAtropine"]
 edition = "2018"
 description = "A Rust Library For Computing The Blake2b Hash of Files with any given Digest Size"
