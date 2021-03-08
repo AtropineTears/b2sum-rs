@@ -1,6 +1,6 @@
 [package]
 name = "b2sum-rust"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["0xAtropine"]
 edition = "2018"
 description = "A Rust Library For Computing The Blake2b Hash of Files with any given Digest Size"
@@ -10,6 +10,9 @@ categories = ["asynchronous","cryptography","filesystem","parsing"]
 license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[example]]
+name = "serde"
+path = "examples/example_run.rs"
 
 [dependencies]
 filebuffer = "0.4.0"
