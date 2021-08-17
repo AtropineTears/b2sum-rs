@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use b2sum_rust::*;
+    use b2sum_rs::*;
     #[test]
     fn blake2b_digest_sizes(){
         // Creates a new File Instance
